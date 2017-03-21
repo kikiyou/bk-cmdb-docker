@@ -1,5 +1,4 @@
 # bk-cmdb-docker: 腾讯蓝鲸智云配置平台 (docker体验版)
-===
 
 Docker化的蓝鲸智云配置平台，使用docker-compose部署，方便大家体验腾讯的开源项目。
 
