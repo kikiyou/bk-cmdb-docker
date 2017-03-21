@@ -1,0 +1,24 @@
+version: '2'
+
+services:
+  nginx-php:
+    build: .
+    image: nginx-php:1.8.1-5.6.30-fpm
+    container_name: cmdb-web
+    restart: always
+    ports:
+      - "80:80"
+    depends_on:
+      - mysql
+    links:
+      - mysql
+  mysql:
+    image: mysql:5.7.17
+    container_name: cmdb-mysql
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+    volumes:
+      - ./bk-cmdb.sql:/docker-entrypoint-initdb.d/bk-cmdb.sql
